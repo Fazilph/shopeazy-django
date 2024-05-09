@@ -31,7 +31,7 @@ def payments(request):
     order.is_ordered=True
     order.save()
 
-    #Move the cart item to OrserProduct table
+    #Move the cart item to OrderProduct table
     cart_items=CartItem.objects.filter(user=request.user)
 
     for item in cart_items:
@@ -143,7 +143,7 @@ def place_order(request ,total=0,quantity=0):
 def order_complete(request):
     order_number = request.GET.get('order_number')
     transID = request.GET.get('payment_id')
-    print(transID)
+
 
     try:
 
